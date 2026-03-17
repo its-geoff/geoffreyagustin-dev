@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/motion";
+import { TiltCard, SpotlightCard } from "@/components/interactive";
 
 const projects = [
   {
@@ -15,6 +16,7 @@ const projects = [
     tags: ["Python", "Data Analysis", "Sports Tech"],
     github: "https://github.com/its-geoff/gold-medal-statistics",
     featured: true,
+    color: "#7BAFD4",
   },
   {
     title: "Course Companion",
@@ -24,6 +26,7 @@ const projects = [
     tags: ["C++", "Education", "Productivity"],
     github: "https://github.com/its-geoff/course-companion",
     featured: true,
+    color: "#5a9bc9",
   },
   {
     title: "NeuroSync",
@@ -33,83 +36,101 @@ const projects = [
     tags: ["SystemVerilog", "EEG", "Signal Processing", "Hardware"],
     github: "https://github.com/its-geoff/neurosync",
     featured: true,
+    color: "#4a8ab8",
   },
 ];
 
 export function ProjectsGrid() {
   return (
-    <StaggerContainer className="space-y-8">
+    <StaggerContainer className="space-y-16">
       {projects.map((project, index) => (
         <StaggerItem key={project.title}>
-          <motion.article
-            className={`grid lg:grid-cols-2 gap-8 items-center ${
-              index % 2 === 1 ? "lg:direction-rtl" : ""
-            }`}
-            whileHover={{ y: -4 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
-            {/* Image */}
-            <div
-              className={`relative aspect-video rounded-xl overflow-hidden border border-border shadow-lg ${
-                index % 2 === 1 ? "lg:order-2" : ""
-              }`}
+          <TiltCard tiltAmount={5} glareEnable={true}>
+            <SpotlightCard
+              className={`grid lg:grid-cols-2 gap-8 items-center p-6 md:p-8 rounded-2xl border border-border bg-card/50 backdrop-blur-sm`}
             >
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover transition-transform duration-500 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-            </div>
-
-            {/* Content */}
-            <div className={index % 2 === 1 ? "lg:order-1 lg:text-right" : ""}>
-              <div
-                className={`flex flex-wrap gap-2 mb-4 ${
-                  index % 2 === 1 ? "lg:justify-end" : ""
+              {/* Image */}
+              <motion.div
+                className={`relative aspect-video rounded-xl overflow-hidden border border-border shadow-lg group ${
+                  index % 2 === 1 ? "lg:order-2" : ""
                 }`}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full"
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg transition-shadow"
                   >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+                    <Github className="w-4 h-4" />
+                    View on GitHub
+                    <ArrowUpRight className="w-3 h-3" />
+                  </Link>
+                </div>
 
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                {project.title}
-              </h3>
-
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                {project.description}
-              </p>
-
-              <div
-                className={`flex items-center gap-4 ${
-                  index % 2 === 1 ? "lg:justify-end" : ""
-                }`}
-              >
-                <Link
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-lg text-foreground hover:bg-muted transition-colors"
+                {/* Project number */}
+                <div
+                  className="absolute top-4 left-4 w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold"
+                  style={{ backgroundColor: project.color, color: "#0a0a0a" }}
                 >
-                  <Github className="w-4 h-4" />
-                  View Code
-                </Link>
-              </div>
-            </div>
-          </motion.article>
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+              </motion.div>
 
-          {/* Divider */}
-          {index < projects.length - 1 && (
-            <div className="border-t border-border my-12" />
-          )}
+              {/* Content */}
+              <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <motion.span
+                      key={tag}
+                      className="px-3 py-1 text-xs font-medium rounded-full border border-border bg-background text-foreground"
+                      whileHover={{ scale: 1.05, borderColor: project.color }}
+                    >
+                      {tag}
+                    </motion.span>
+                  ))}
+                </div>
+
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group">
+                  <span
+                    className="bg-gradient-to-r from-foreground to-foreground bg-no-repeat bg-[length:0%_2px] bg-left-bottom transition-all duration-500 hover:bg-[length:100%_2px]"
+                    style={{ backgroundImage: `linear-gradient(${project.color}, ${project.color})` }}
+                  >
+                    {project.title}
+                  </span>
+                </h3>
+
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                <div className="flex items-center gap-4">
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 hover:shadow-lg"
+                    style={{
+                      backgroundColor: project.color,
+                      color: "#0a0a0a",
+                    }}
+                  >
+                    <Github className="w-4 h-4" />
+                    View Code
+                  </Link>
+                </div>
+              </div>
+            </SpotlightCard>
+          </TiltCard>
         </StaggerItem>
       ))}
     </StaggerContainer>
