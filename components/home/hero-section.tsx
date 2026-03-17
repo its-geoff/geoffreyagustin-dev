@@ -31,7 +31,7 @@ function LinkedinIcon({ className }: { className?: string }) {
   );
 }
 import { FadeIn, GlowingOrb } from "@/components/motion";
-import { Typewriter, MagneticButton, AnimatedCodeBlock } from "@/components/interactive";
+import { Typewriter, LiftCard, AnimatedCodeBlock } from "@/components/interactive";
 
 const codeSnippet = `const geoffrey = {
   role: "Computer Engineer",
@@ -107,7 +107,7 @@ export function HeroSection() {
 
             <FadeIn delay={0.4}>
               <div className="flex flex-wrap gap-4 mb-8">
-                <MagneticButton>
+                <LiftCard>
                   <Link
                     href="/projects"
                     className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
@@ -115,21 +115,21 @@ export function HeroSection() {
                     View My Work
                     <ArrowRight className="w-4 h-4" />
                   </Link>
-                </MagneticButton>
-                <MagneticButton>
+                </LiftCard>
+                <LiftCard>
                   <Link
                     href="/about"
                     className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground rounded-lg font-medium hover:bg-muted transition-colors"
                   >
                     Learn More
                   </Link>
-                </MagneticButton>
+                </LiftCard>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.5}>
               <div className="flex items-center gap-4">
-                <MagneticButton strength={0.2}>
+                <LiftCard liftAmount={2}>
                   <Link
                     href="https://github.com/its-geoff"
                     target="_blank"
@@ -139,8 +139,8 @@ export function HeroSection() {
                   >
                     <GithubIcon className="w-5 h-5" />
                   </Link>
-                </MagneticButton>
-                <MagneticButton strength={0.2}>
+                </LiftCard>
+                <LiftCard liftAmount={2}>
                   <Link
                     href="https://linkedin.com/in/geoffrey-agustin"
                     target="_blank"
@@ -150,7 +150,7 @@ export function HeroSection() {
                   >
                     <LinkedinIcon className="w-5 h-5" />
                   </Link>
-                </MagneticButton>
+                </LiftCard>
               </div>
             </FadeIn>
           </div>

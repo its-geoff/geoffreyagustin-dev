@@ -4,34 +4,47 @@ import { motion } from "framer-motion";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import { SpotlightCard, TiltCard } from "@/components/interactive";
 
-const toolCategories = [
+type ProficiencyLevel = "proficient" | "familiar" | "exploring";
+
+interface Tool {
+  name: string;
+  icon: string;
+  level: ProficiencyLevel;
+}
+
+interface ToolCategory {
+  name: string;
+  tools: Tool[];
+}
+
+const toolCategories: ToolCategory[] = [
   {
     name: "Languages",
     tools: [
       {
         name: "Python",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        level: 90,
+        level: "proficient",
       },
       {
         name: "C/C++",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-        level: 85,
+        level: "proficient",
       },
       {
         name: "MATLAB",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg",
-        level: 70,
+        level: "familiar",
       },
       {
         name: "SystemVerilog",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-        level: 65,
+        level: "familiar",
       },
       {
         name: "JavaScript",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-        level: 60,
+        level: "exploring",
       },
     ],
   },
@@ -41,22 +54,22 @@ const toolCategories = [
       {
         name: "React",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        level: 50,
+        level: "exploring",
       },
       {
         name: "Next.js",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-        level: 45,
+        level: "exploring",
       },
       {
         name: "NumPy",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
-        level: 75,
+        level: "familiar",
       },
       {
         name: "Pandas",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
-        level: 70,
+        level: "familiar",
       },
     ],
   },
@@ -66,22 +79,22 @@ const toolCategories = [
       {
         name: "Git",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-        level: 85,
+        level: "proficient",
       },
       {
         name: "GitHub",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-        level: 90,
+        level: "proficient",
       },
       {
         name: "VS Code",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-        level: 95,
+        level: "proficient",
       },
       {
         name: "Linux",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-        level: 70,
+        level: "familiar",
       },
     ],
   },
@@ -91,16 +104,46 @@ const toolCategories = [
       {
         name: "Arduino",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
-        level: 75,
+        level: "familiar",
       },
       {
         name: "Raspberry Pi",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
-        level: 70,
+        level: "familiar",
       },
     ],
   },
 ];
+
+const proficiencyConfig = {
+  proficient: { bars: 3, label: "Proficient", color: "bg-primary" },
+  familiar: { bars: 2, label: "Familiar", color: "bg-primary" },
+  exploring: { bars: 1, label: "Exploring", color: "bg-primary" },
+};
+
+function ProficiencyBars({ level }: { level: ProficiencyLevel }) {
+  const config = proficiencyConfig[level];
+  
+  return (
+    <div className="flex flex-col items-center gap-1.5 mt-3">
+      <div className="flex gap-1">
+        {[1, 2, 3].map((bar) => (
+          <motion.div
+            key={bar}
+            className={`h-1.5 w-5 rounded-full ${
+              bar <= config.bars ? config.color : "bg-muted"
+            }`}
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 * bar }}
+          />
+        ))}
+      </div>
+      <span className="text-xs text-muted-foreground">{config.label}</span>
+    </div>
+  );
+}
 
 export function ToolsGrid() {
   return (
@@ -127,7 +170,7 @@ export function ToolsGrid() {
                       >
                         {/* Icon */}
                         <motion.div 
-                          className="w-14 h-14 mx-auto mb-4 flex items-center justify-center"
+                          className="w-14 h-14 mx-auto mb-3 flex items-center justify-center"
                           whileHover={{ rotate: [0, -10, 10, 0] }}
                           transition={{ duration: 0.5 }}
                         >
@@ -139,23 +182,12 @@ export function ToolsGrid() {
                         </motion.div>
 
                         {/* Name */}
-                        <h4 className="text-sm font-medium text-foreground mb-3">
+                        <h4 className="text-sm font-medium text-foreground">
                           {tool.name}
                         </h4>
 
-                        {/* Progress bar */}
-                        <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
-                          <motion.div
-                            className="h-full bg-primary rounded-full"
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${tool.level}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                          />
-                        </div>
-                        <p className="text-xs text-muted-foreground mt-2">
-                          {tool.level}% proficiency
-                        </p>
+                        {/* Proficiency bars */}
+                        <ProficiencyBars level={tool.level} />
                       </motion.div>
                     </SpotlightCard>
                   </TiltCard>

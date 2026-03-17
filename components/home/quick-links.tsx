@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Briefcase, Code2, FolderGit2, User, ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/section";
 import { StaggerContainer, StaggerItem } from "@/components/motion";
-import { SpotlightCard, MagneticButton } from "@/components/interactive";
+import { SpotlightCard, LiftCard } from "@/components/interactive";
 
 const links = [
   {
@@ -44,13 +44,11 @@ export function QuickLinks() {
       <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {links.map((link, index) => (
           <StaggerItem key={link.href}>
-            <MagneticButton strength={0.1} className="w-full h-full">
+            <LiftCard className="w-full h-full">
               <Link href={link.href} className="block h-full">
                 <SpotlightCard className="h-full">
-                  <motion.div
+                  <div
                     className="h-full p-6 bg-card rounded-xl border border-border hover:border-primary/50 transition-all duration-300 group relative overflow-hidden"
-                    whileHover={{ y: -4 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
                     {/* Background gradient on hover */}
                     <motion.div
@@ -102,10 +100,10 @@ export function QuickLinks() {
                         transition={{ duration: 0.3 }}
                       />
                     </div>
-                  </motion.div>
+                  </div>
                 </SpotlightCard>
               </Link>
-            </MagneticButton>
+            </LiftCard>
           </StaggerItem>
         ))}
       </StaggerContainer>
