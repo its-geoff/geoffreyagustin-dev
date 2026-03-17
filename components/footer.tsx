@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { MagneticButton } from "@/components/interactive";
+import { LiftCard } from "@/components/interactive";
 
 const socialLinks = [
   {
@@ -75,7 +75,7 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Connect</h4>
             <div className="flex items-center gap-2">
               {socialLinks.map((link) => (
-                <MagneticButton key={link.label} strength={0.3}>
+                <LiftCard key={link.label} liftAmount={4}>
                   <Link
                     href={link.href}
                     target="_blank"
@@ -85,7 +85,7 @@ export function Footer() {
                   >
                     <link.icon size={20} />
                   </Link>
-                </MagneticButton>
+                </LiftCard>
               ))}
             </div>
           </div>
