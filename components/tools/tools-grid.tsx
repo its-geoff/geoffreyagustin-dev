@@ -27,23 +27,18 @@ const toolCategories: ToolCategory[] = [
         level: "proficient",
       },
       {
-        name: "C/C++",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-        level: "proficient",
-      },
-      {
         name: "MATLAB",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg",
         level: "familiar",
       },
       {
-        name: "SystemVerilog",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-        level: "familiar",
-      },
-      {
         name: "JavaScript",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        level: "exploring",
+      },
+      {
+        name: "TypeScript",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
         level: "exploring",
       },
     ],
@@ -52,24 +47,19 @@ const toolCategories: ToolCategory[] = [
     name: "Frameworks & Libraries",
     tools: [
       {
-        name: "React",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-        level: "exploring",
-      },
-      {
         name: "Next.js",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
         level: "exploring",
       },
       {
-        name: "NumPy",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
-        level: "familiar",
+        name: "React",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+        level: "exploring",
       },
       {
-        name: "Pandas",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
-        level: "familiar",
+        name: "PostgreSQL",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+        level: "exploring",
       },
     ],
   },
@@ -98,21 +88,6 @@ const toolCategories: ToolCategory[] = [
       },
     ],
   },
-  {
-    name: "Hardware & Embedded",
-    tools: [
-      {
-        name: "Arduino",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg",
-        level: "familiar",
-      },
-      {
-        name: "Raspberry Pi",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg",
-        level: "familiar",
-      },
-    ],
-  },
 ];
 
 const proficiencyConfig = {
@@ -123,7 +98,7 @@ const proficiencyConfig = {
 
 function ProficiencyBars({ level }: { level: ProficiencyLevel }) {
   const config = proficiencyConfig[level];
-  
+
   return (
     <div className="flex flex-col items-center gap-1.5 mt-3">
       <div className="flex gap-1">
@@ -169,7 +144,7 @@ export function ToolsGrid() {
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                       >
                         {/* Icon */}
-                        <motion.div 
+                        <motion.div
                           className="w-14 h-14 mx-auto mb-3 flex items-center justify-center"
                           whileHover={{ rotate: [0, -10, 10, 0] }}
                           transition={{ duration: 0.5 }}
@@ -203,7 +178,7 @@ export function ToolsGrid() {
         <SpotlightCard className="mt-12 p-8 bg-card rounded-2xl border border-border relative overflow-hidden">
           {/* Background decoration */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-          
+
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-4">
               <motion.div
@@ -218,14 +193,14 @@ export function ToolsGrid() {
             <p className="text-muted-foreground leading-relaxed max-w-2xl">
               Technology evolves rapidly, and so do I. I{"'"}m constantly exploring
               new tools and frameworks to expand my skill set. Currently, I{"'"}m
-              diving deeper into web development with React and Next.js, while
-              continuing to strengthen my foundation in embedded systems and signal
-              processing.
+              building out my web development skills with React and Next.js, while
+              continuing to strengthen my foundation in software testing and
+              automated test equipment from my work at Intuitive Surgical.
             </p>
 
             {/* Currently learning tags */}
             <div className="flex flex-wrap gap-2 mt-6">
-              {["React", "Next.js", "TypeScript", "Tailwind CSS"].map((tech, index) => (
+              {["React", "Next.js", "TypeScript", "PostgreSQL"].map((tech, index) => (
                 <motion.span
                   key={tech}
                   className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full"
