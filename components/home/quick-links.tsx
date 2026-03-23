@@ -120,7 +120,7 @@ export function QuickLinks() {
           { label: "Projects Completed", value: "10+" },
           { label: "Technologies Used", value: "15+" },
           { label: "Years Coding", value: "4+" },
-          { label: "Bugs Resolved", value: "999+" },
+          { label: "Issues Resolved", value: "40+" },
         ].map((stat, index) => (
           <motion.div
             key={stat.label}
