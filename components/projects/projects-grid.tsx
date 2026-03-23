@@ -3,8 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { StaggerContainer, StaggerItem } from "@/components/motion";
 import { TiltCard, SpotlightCard } from "@/components/interactive";
 
@@ -12,7 +11,7 @@ const projects = [
   {
     title: "Gold Medal Statistics",
     description:
-      "A standardized scoring platform for track & field coaches to measure and compare athlete performance.",
+      "A Python application that allows coaches and athletes to input track and field performance marks and compare athletes across different event types using standardized scoring tables.",
     image: "/images/projects/gold-medal-statistics.png",
     tags: ["Python", "Data Analysis", "Sports Tech"],
     github: "https://github.com/its-geoff/gold-medal-statistics",
@@ -22,7 +21,7 @@ const projects = [
   {
     title: "Course Companion",
     description:
-      "A comprehensive homework tracker built in C++ that allows students to track assignments, estimate grades based on weighted categories, and organize their class schedules. Designed to help students stay on top of their academic workload.",
+      "A homework tracker built in C++ that allows students to track assignments, estimate grades based on weighted categories, and organize their class schedules. Designed to help students stay on top of their academic workload.",
     image: "/images/projects/course-companion.jpg",
     tags: ["C++", "Education", "Productivity"],
     github: "https://github.com/its-geoff/course-companion",
@@ -32,9 +31,9 @@ const projects = [
   {
     title: "NeuroSync",
     description:
-      "An innovative project that uses an EEG headband with connected software to filter brainwaves and translate them into emotions. Combines hardware interfacing with signal processing to create a real-time emotion detection system.",
+      "Senior capstone project that connects EEG hardware to software to filter brainwaves and translate them into emotions, with applications in mental health counseling. Responsible for the software side of the system — developing the hardware-software communication layer, building comprehensive test suites to validate data transmission and processing, and designing the CI/CD pipeline to support reliable, continuous integration across the team.",
     image: "/images/projects/neurosync.jpg",
-    tags: ["SystemVerilog", "EEG", "Signal Processing", "Hardware"],
+    tags: ["Python", "CI/CD", "Hardware-Software Interface", "Testing", "EEG"],
     github: "https://github.com/its-geoff/neurosync",
     featured: true,
     color: "#4a8ab8",
@@ -64,19 +63,6 @@ export function ProjectsGrid() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:shadow-lg transition-shadow"
-                  >
-                    <FaGithub className="w-4 h-4" />
-                    View on GitHub
-                    <ArrowUpRight className="w-3 h-3" />
-                  </Link>
-                </div>
-
                 {/* Project number */}
                 <div
                   className="absolute top-4 left-4 w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold"
@@ -104,7 +90,9 @@ export function ProjectsGrid() {
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group">
                   <span
                     className="bg-gradient-to-r from-foreground to-foreground bg-no-repeat bg-[length:0%_2px] bg-left-bottom transition-all duration-500 hover:bg-[length:100%_2px]"
-                    style={{ backgroundImage: `linear-gradient(${project.color}, ${project.color})` }}
+                    style={{
+                      backgroundImage: `linear-gradient(${project.color}, ${project.color})`,
+                    }}
                   >
                     {project.title}
                   </span>
