@@ -9,24 +9,25 @@ export function AboutHero() {
       <FadeIn>
         <SectionHeader
           title="About Me"
-          description="Getting to know me beyond the code - my journey, my passions, and what makes me tick."
+          description="Get to know my journey, my passions, and my motivation."
         />
       </FadeIn>
 
       <FadeIn delay={0.1}>
         <div className="prose prose-lg max-w-3xl text-muted-foreground">
           <p className="text-lg leading-relaxed">
-            I{"'"}m a Computer Engineering student with a passion for building
-            innovative solutions that bridge hardware and software. My journey in
-            tech started with curiosity about how things work, and it has evolved
-            into a deep commitment to creating meaningful technology.
+            I{"'"}m a Computer Engineering student with a passion for robotics,
+            test development, and QA. My passion for software engineering comes
+            from a childhood love for puzzles. I have a knack for riddles,
+            sudoku, and crossword puzzles. I love untangling complex problems; 
+            there's nothing like the moment everything clicks into place.
           </p>
           <p className="text-lg leading-relaxed mt-4">
-            When I{"'"}m not coding or studying circuits, you{"'"}ll find me
-            exploring new ideas, working on side projects, or staying up to date
-            with the latest developments in the tech world. I believe that the
-            best engineers are lifelong learners, and I try to embody that
-            philosophy every day.
+            When I{"'"}m not developing apps, you can find me
+            exploring new test frameworks and tooling, traveling with
+            family, or watching engineering content. To me, engineering is about
+            exploring beyond the top level and connecting the dots between each
+            layer. The "aha" moment at the end makes the entire process worth it.
           </p>
         </div>
       </FadeIn>

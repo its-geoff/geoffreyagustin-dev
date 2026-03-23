@@ -225,7 +225,7 @@ export function AnimatedCodeBlock({
           <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
           <div className="w-3 h-3 rounded-full bg-[#28ca42]" />
         </div>
-        <span className="text-xs text-gray-400 ml-2">geoffrey.ts</span>
+        <span className="text-xs text-gray-400 ml-2">geoffrey.py</span>
       </div>
       <pre className="p-4 bg-[#1e1e1e] text-sm font-mono overflow-x-auto">
         <code className="text-gray-300">

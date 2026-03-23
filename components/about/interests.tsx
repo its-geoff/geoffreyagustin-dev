@@ -17,37 +17,19 @@ const interests = [
     icon: Gamepad2,
     title: "Gaming",
     description:
-      "Enjoy competitive and story-driven games. Gaming helps me unwind and often inspires creative problem-solving approaches.",
-  },
-  {
-    icon: Music,
-    title: "Music",
-    description:
-      "Always have music playing while coding. From lo-fi beats to alternative rock, music fuels my productivity and creativity.",
-  },
-  {
-    icon: Camera,
-    title: "Photography",
-    description:
-      "Capturing moments and exploring visual composition. It teaches me to pay attention to details and see things from different angles.",
-  },
-  {
-    icon: BookOpen,
-    title: "Reading",
-    description:
-      "Love diving into tech articles, sci-fi novels, and personal development books. Continuous learning is key to growth.",
+      "Really into strategy and multiplayer games; adapting on the fly leads to creative problem-solving approaches.",
   },
   {
     icon: Dumbbell,
     title: "Fitness",
     description:
-      "Regular workouts keep me energized and focused. A healthy body supports a sharp mind for tackling complex problems.",
+      "Staying active is a big part of my routine! Hitting the gym regularly helps me stay sharp and bring energy to whatever I'm working on.",
   },
   {
     icon: Plane,
     title: "Travel",
     description:
-      "Exploring new places and cultures broadens my perspective. Every trip teaches me something new about the world and myself.",
+      "Love exploring new places when I get the chance. Every trip broadens my perspective and teaches me more than I expect.",
   },
 ];
 
@@ -57,7 +39,7 @@ export function Interests() {
       <FadeIn>
         <SectionHeader
           title="Beyond the Code"
-          description="Life isn't all about programming. Here's what I enjoy when I step away from the keyboard."
+          description="Life isn't all about programming. Here's what I enjoy when I step away from work."
         />
       </FadeIn>
 

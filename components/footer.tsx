@@ -48,8 +48,7 @@ export function Footer() {
               <span className="font-semibold text-foreground">Geoffrey Agustin</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs">
-              Computer engineering student passionate about building elegant solutions
-              at the intersection of hardware and software.
+              Robotics software engineer with a passion for test development and QA.
             </p>
           </div>
 

@@ -12,8 +12,8 @@ const projects = [
   {
     title: "Gold Medal Statistics",
     description:
-      "A Python application that allows users to input track and field marks and compare athletes on their team across different event types. Features statistical analysis and performance visualization to help coaches and athletes track progress over time.",
-    image: "/images/projects/gold-medal-statistics.jpg",
+      "A standardized scoring platform for track & field coaches to measure and compare athlete performance.",
+    image: "/images/projects/gold-medal-statistics.png",
     tags: ["Python", "Data Analysis", "Sports Tech"],
     github: "https://github.com/its-geoff/gold-medal-statistics",
     featured: true,

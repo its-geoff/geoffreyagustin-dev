@@ -33,17 +33,17 @@ function LinkedinIcon({ className }: { className?: string }) {
 import { FadeIn, GlowingOrb } from "@/components/motion";
 import { Typewriter, LiftCard, AnimatedCodeBlock } from "@/components/interactive";
 
-const codeSnippet = `const geoffrey = {
-  role: "Computer Engineer",
-  location: "San Jose, CA",
-  passions: [
-    "Embedded Systems",
-    "Signal Processing",
-    "Clean Code"
-  ],
-  currentFocus: "Building tech 
-    that makes an impact"
-};`;
+const codeSnippet = `geoffrey = {
+    "role": "Computer Engineer",
+    "location": "San Jose, CA",
+    "passions": [
+        "Test Development",
+        "Robotic Systems",
+        "Quality Assurance"
+    ],
+    "current_focus": "Building reliable 
+      test systems for robotics"
+}`;
 
 export function HeroSection() {
   return (
@@ -86,7 +86,7 @@ export function HeroSection() {
                 <Typewriter
                   words={[
                     "Computer Engineer",
-                    "Embedded Systems Developer",
+                    "Test Suite Developer",
                     "Problem Solver",
                     "Creative Thinker",
                   ]}
@@ -99,9 +99,10 @@ export function HeroSection() {
 
             <FadeIn delay={0.3}>
               <p className="text-lg text-muted-foreground mb-8 max-w-lg text-pretty leading-relaxed">
-                I build elegant solutions at the intersection of hardware and
-                software. Passionate about creating technology that makes a
-                meaningful impact through clean code and thoughtful design.
+                Robotics software engineer with a passion for test development
+                and QA. I design test suites that validate hardware-software
+                integration and ensure robotic systems meet the highest
+                standards of reliability and performance.
               </p>
             </FadeIn>
 

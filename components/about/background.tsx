@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, MapPin, Calendar } from "lucide-react";
+import { GraduationCap, MapPin, Calendar, Award } from "lucide-react";
 import { Section, SectionHeader } from "@/components/section";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 
@@ -10,11 +10,12 @@ const education = [
     degree: "B.S. Computer Engineering",
     minor: "Business Minor",
     location: "San Jose, CA",
-    period: "Expected 2026",
+    period: "August 2022 - May 2026",
     highlights: [
-      "Focus on embedded systems and software development",
-      "Active involvement in engineering student organizations",
-      "Coursework in digital systems, algorithms, and computer architecture",
+      "President's Scholar (Spring 2023)",
+      "Dean's Scholar (Fall 2022 - Fall 2025)",
+      "A.S. 55 Award (2025)",
+      "Relevant Coursework: Fundamentals of Management & Organizational Behavior, Software Engineering I, Introduction to Marketing",
     ],
   },
 ];
@@ -24,19 +25,25 @@ const milestones = [
     year: "2022",
     title: "Started University",
     description:
-      "Began my Computer Engineering journey at San Jose State University.",
+      "Began my Computer Engineering journey at San Jose State University, earning Dean's Scholar honors in my first semester.",
   },
   {
-    year: "2024",
-    title: "First Internship",
+    year: "2023",
+    title: "President's Scholar",
     description:
-      "Gained hands-on industry experience working with cutting-edge technology.",
+      "Awarded the President's Scholar distinction in Spring 2023, recognizing academic excellence.",
   },
   {
     year: "2025",
-    title: "Major Projects",
+    title: "Internship & Leadership Roles",
     description:
-      "Developed key projects including NeuroSync and Course Companion.",
+      "Completed a Software Test Engineering internship at Intuitive Surgical and stepped into Vice President roles at Associated Students, SJSU and Tau Beta Pi.",
+  },
+  {
+    year: "2026",
+    title: "Expected Graduation",
+    description:
+      "On track to graduate with a B.S. in Computer Engineering and a Business minor in May 2026.",
   },
 ];
 
