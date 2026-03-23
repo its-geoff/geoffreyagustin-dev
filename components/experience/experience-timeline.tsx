@@ -8,21 +8,20 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 
 const experiences = [
   {
-    company: "Intuitive",
+    company: "Intuitive Surgical Inc.",
     logo: "/images/companies/intuitive.jpg",
-    role: "Software Engineering Intern",
+    role: "Software Test Engineering Intern",
     type: "Internship",
     location: "Sunnyvale, CA",
-    period: "Summer 2024",
+    period: "June 2025 – August 2025",
     description:
-      "Contributed to software development for robotic surgical systems at a leading medical technology company. Worked alongside experienced engineers on projects that directly impact patient care and surgical precision.",
+      "Contributed to Advanced Product Development at a leading medical robotics company, designing test methodologies for electromechanical systems and supporting cross-functional teams through characterization, life cycle testing, and manufacturing readiness.",
     responsibilities: [
-      "Developed and tested software components for robotic surgical systems",
-      "Collaborated with cross-functional teams including hardware and clinical engineers",
-      "Participated in code reviews and followed best practices for medical device software",
-      "Gained experience with software development in a highly regulated industry",
+      "Designed and delivered 3 test methodologies for electromechanical brake assembly verification, presenting findings to stakeholders and reducing manual effort and test time by 20%",
+      "Analyzed 2,000+ data points from characterization and life cycle tests, identifying performance risks and recommending design refinements to cross-functional teams",
+      "Resolved 40+ system-level issues by coordinating with hardware, software, and systems teams to track issue status, improve system uptime, and support manufacturing readiness",
     ],
-    skills: ["C++", "Python", "Software Testing", "Medical Devices", "Agile"],
+    skills: ["Python", "MATLAB", "Software Testing", "Automated Test Equipment (ATE)", "Agile", "Medical Devices"],
     website: "https://www.intuitive.com",
   },
 ];
